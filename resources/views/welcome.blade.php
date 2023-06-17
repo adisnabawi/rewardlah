@@ -109,7 +109,7 @@
                             <tr>
                                 <td>{{ $transaction->created_at->format('d M Y') }}</td>
                                 <td>{{ request()->get('send') == 1 ? $transaction->sent : $transaction->received }}</td>
-                                <td>{{ $transaction->sender->name }}</td>
+                                <td>{{ request()->get('send') == 1 ? $transaction->sender->name : $transaction->receiver->name }}</td>
                                 <td>{{ $transaction->remarks ?? '-' }}</td>
                             </tr>
                             @endforeach

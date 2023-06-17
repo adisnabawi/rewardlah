@@ -13,6 +13,9 @@
         <li class="{{ Route::currentRouteName() == 'dashboard.employee' ? 'active-page':'' }}">
             <a href="{{ route('dashboard.employee') }}"><i data-feather="user"></i>Employee</a>
         </li>
+        <li class="{{ Route::currentRouteName() == 'dashboard.product' ? 'active-page':'' }}">
+            <a href="{{ route('dashboard.product') }}"><i data-feather="user"></i>Product</a>
+        </li>
         @endif
         <li class="sidebar-title">
             Apps
@@ -20,8 +23,8 @@
         <li class="{{ Route::currentRouteName() == 'dashboard.leaderboard' ? 'active-page':'' }}">
             <a href="{{ route('dashboard.leaderboard') }}"><i data-feather="message-circle"></i>LeaderBoard</a>
         </li>
-        <li>
-            <a href=""><i data-feather="shopping-bag"></i>Reward and Redeem</a>
+        <li class="{{ Route::currentRouteName() == 'dashboard.redeem' ? 'active-page':'' }}">
+            <a href="{{ route('dashboard.redeem') }}"><i data-feather="shopping-bag"></i>Reward and Redeem</a>
         </li>
         <li>
             <a href=""><i data-feather="users"></i>Mentoring</a>

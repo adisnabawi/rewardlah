@@ -6,6 +6,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PointsController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RedeemController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -57,6 +59,16 @@ Route::middleware('auth')->name('dashboard.')->group(function () {
 
     Route::prefix('/points')->group(function () {
         Route::post('/send', [PointsController::class, 'send'])->name('points.send');
+    });
+
+    Route::prefix('/product')->group(function () {
+        Route::get('/',[ProductController::class, 'index'])->name('product');
+        Route::post('/add', [ProductController::class, 'add'])->name('product.add');
+    });
+
+    Route::prefix('/redeem')->group(function () {
+        Route::get('/',[RedeemController::class, 'index'])->name('redeem');
+        Route::post('/add', [RedeemController::class, 'redeem'])->name('redeem.add');
     });
 
     Route::get('/leaderboard',[DashboardController::class, 'leaderboard'])->name('leaderboard');

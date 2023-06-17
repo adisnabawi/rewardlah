@@ -100,6 +100,11 @@
                                 <th>{{ request()->get('send') == 1 ? 'Send To' : 'Given By' }}</th>
                                 <th>Remarks</th>
                             </tr>
+                            @if($transactions->count() == 0)
+                                <tr>
+                                    <td colspan="4" class="text-center"> No Data</td>
+                                </tr>
+                            @endif
                             @foreach($transactions as $transaction)
                             <tr>
                                 <td>{{ $transaction->created_at->format('d M Y') }}</td>

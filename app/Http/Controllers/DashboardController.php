@@ -2,15 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $announcements = [];
-        return view('welcome', compact('announcements'));
+        $employees = User::where('company_id', auth()->user()->company_id)
+            ->whereNotIn('id', [auth()->user()->id])
+            ->orderBy('name')
+            ->get();
+
+        $transactions = Transaction::where('company_id', auth()->user()->company_id);
+        if (isset($request->send) && $request->send == 1) {
+            $transactions->where('sender_id', auth()->user()->id);
+        } else {
+            $transactions->where('receiver_id', auth()->user()->id);
+        }
+
+        $transactions = $transactions->orderBy('created_at', 'desc')
+            ->paginate(10);
+        return view('welcome', compact('employees', 'transactions'));
     }
 
     public function leaderboard()
@@ -36,7 +50,7 @@ class DashboardController extends Controller
 
     public function announcement()
     {
-        return view('announcement');
+        return view('announcement.index');
     }
 
     public function announcementCreate()

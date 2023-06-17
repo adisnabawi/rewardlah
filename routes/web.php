@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PointsController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -54,6 +55,9 @@ Route::middleware('auth')->name('dashboard.')->group(function () {
         Route::post('/store', [DepartmentController::class, 'store'])->name('department.store');
     });
 
+    Route::prefix('/points')->group(function () {
+        Route::post('/send', [PointsController::class, 'send'])->name('points.send');
+    });
+
     Route::get('/leaderboard',[DashboardController::class, 'leaderboard'])->name('leaderboard');
-    Route::get('/announcement/create',[DashboardController::class, 'announcementCreate'])->name('announcement.create');
 });

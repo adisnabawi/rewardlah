@@ -24,9 +24,6 @@
             <a href=""><i data-feather="shopping-bag"></i>Reward and Redeem</a>
         </li>
         <li>
-            <a href=""><i data-feather="award"></i>Reward myBuddy</a>
-        </li>
-        <li>
             <a href=""><i data-feather="users"></i>Mentoring</a>
         </li>
     </ul>

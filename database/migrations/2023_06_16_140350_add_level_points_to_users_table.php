@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->integer('level')->default(2);
             $table->double('points')->default(0);
+            $table->double('wallet_points')->default(100);
             $table->integer('department_id')->nullable();
         });
     }
@@ -28,7 +29,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['level', 'points', 'department_id']);
+            $table->dropColumn(['level', 'points', 'wallet_points', 'department_id']);
         });
     }
 };

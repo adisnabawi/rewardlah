@@ -45,6 +45,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'admin@rewardlah.my',
                 'password' => bcrypt('password'),
                 'company_id' => $company->id,
+                'points' => 1000,
                 'level' => 1,
             ]);
         }

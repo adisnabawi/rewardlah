@@ -32,7 +32,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-5 text-center" style="margin: 0 auto;">
-                                                <i data-feather="repeat" style="font-size: 70px; margin-top: 15px"></i>
+                                                <i data-feather="repeat" style="font-size: 90px; margin-top: 25px"></i>
                                             </div>
                                             <div class="col-7">
                                                 <h4>{{ number_format(auth()->user()->wallet_points) }}</h4>

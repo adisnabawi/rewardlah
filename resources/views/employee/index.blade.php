@@ -19,6 +19,8 @@
                                         <th scope="col">Name</th>
                                         <th>Email</th>
                                         <th scope="col">Points</th>
+                                        <th class="text-center">Given Points</th>
+                                        <th class="text-center">Received Points</th>
                                         <th scope="col">Department</th>
                                     </tr>
                                 </thead>
@@ -31,6 +33,8 @@
                                         </td>
                                         <td>{{ $employee->email }}</td>
                                         <td>{{ $employee->points }}</td>
+                                        <td class="text-center">{{ $employee->sender->sum('points') }}</td>
+                                        <td class="text-center">{{ $employee->receiver->sum('points') }}</td>
                                         <td style="color: {{ $employee->department->color }}">{{ $employee->department->name }}</td>
                                     </tr>
                                     @endforeach

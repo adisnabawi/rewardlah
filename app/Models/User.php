@@ -53,4 +53,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Company::class);
     }
+
+    public function sender()
+    {
+        return $this->hasMany(Transaction::class, 'sender_id');
+    }
+
+    public function receiver()
+    {
+        return $this->hasMany(Transaction::class, 'receiver_id');
+    }
 }

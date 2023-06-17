@@ -27,7 +27,7 @@
                                         <td style="color: {{ $department->color }}">
                                            {{ $department->name }}
                                         </td>
-                                        <td>{{ $department->totalPoints }}</td>
+                                        <td><i data-feather="award"></i> {{ $department->totalPoints }}</td>
                                         <td>{{ $department->totalEmployees }}</td>
                                     </tr>
                                     @endforeach

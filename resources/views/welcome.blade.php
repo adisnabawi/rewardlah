@@ -81,7 +81,7 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <h4>Latest Points Transactions</h4>
+                        <h4 class="mb-4">Latest Points Transactions</h4>
                         <div class="row mb-4">
                             <div class="col-md-8"></div>
                             <div class="col-md-4">
@@ -93,28 +93,31 @@
                                 </form>
                             </div>
                         </div>
-                        <table class="table table-hover">
-                            <tr>
-                                <th>Date</th>
-                                <th>Points {{ request()->get('send') == 1 ? 'Send' : 'Received' }}</th>
-                                <th>{{ request()->get('send') == 1 ? 'Send To' : 'Given By' }}</th>
-                                <th>Remarks</th>
-                            </tr>
-                            @if($transactions->count() == 0)
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Date</th>
+                                    <th class="text-center">Points {{ request()->get('send') == 1 ? 'Send' : 'Received' }}</th>
+                                    <th class="text-center">{{ request()->get('send') == 1 ? 'Send To' : 'Given By' }}</th>
+                                    <th>Remarks</th>
+                                </tr>
+                                @if($transactions->count() == 0)
                                 <tr>
                                     <td colspan="4" class="text-center"> No Data</td>
                                 </tr>
-                            @endif
-                            @foreach($transactions as $transaction)
-                            <tr>
-                                <td>{{ $transaction->created_at->format('d M Y') }}</td>
-                                <td>{{ $transaction->points }}</td>
-                                <td>{{ request()->get('send') == 1 ? $transaction->receiver->name : $transaction->sender->name }}</td>
-                                <td>{{ $transaction->remarks ?? '-' }}</td>
-                            </tr>
-                            @endforeach
-                        </table>
-                        {{ $transactions->links() }}
+                                @endif
+                                @foreach($transactions as $transaction)
+                                <tr>
+                                    <td>{{ $transaction->created_at->format('d M Y') }}</td>
+                                    <td class="text-center"><i data-feather="award"></i> {{ $transaction->points }}</td>
+                                    <td class="text-center">{{ request()->get('send') == 1 ? $transaction->receiver->name : $transaction->sender->name }}</td>
+                                    <td>{{ $transaction->remarks ?? '-' }}</td>
+                                </tr>
+                                @endforeach
+                            </table>
+                            {{ $transactions->links() }}
+                        </div>
+
                     </div>
                 </div>
             </div>

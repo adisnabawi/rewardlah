@@ -54,6 +54,11 @@
             <img src="{{ $purchase->product->image }}" style="height: 200px; object-fit:contain" class="card-img-top" alt="...">
             <div class="card-body">
                 <p style="height:40px">{{ Str::limit($purchase->product->name, 60) }}</p>
+
+                <div class="progress mb-3">
+                    <div class="progress-bar-animated bg-success progress-bar-striped" role="progressbar" style="width: {{ round((auth()->user()->points / $purchase->product->redeem_points) * 100, 2) }}%" aria-valuenow="{{ round((auth()->user()->points / $purchase->product->redeem_points) * 100, 2) }}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+
                 <h5 class="mt-2 mb-4 text-info"><i data-feather="award"></i> {{ number_format($purchase->product->redeem_points) }} Points</h5>
                 <div class="d-grid">
                     <form action="{{ route('dashboard.redeem.add') }}" method="post">

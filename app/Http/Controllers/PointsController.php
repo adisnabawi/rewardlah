@@ -30,14 +30,13 @@ class PointsController extends Controller
             $user->save();
 
             $transaction = new Transaction();
-            $transaction->sent = $data['points'];
-            $transaction->received = 0;
+            $transaction->points = $data['points'];
             $transaction->sender_id = $user->id;
             $transaction->receiver_id = $employee->id;
             $transaction->remarks = $data['remarks'];
             $transaction->company_id = auth()->user()->company_id;
             $transaction->save();
-            
+
             DB::commit();
 
             return redirect()->back()->with('success', 'Points sent successfully');

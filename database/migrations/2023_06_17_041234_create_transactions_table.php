@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->double('received')->default(0);
-            $table->double('sent')->default(0);
+            $table->double('points')->default(0);
             $table->integer('sender_id');
             $table->integer('receiver_id');
             $table->string('type')->default('transfer');

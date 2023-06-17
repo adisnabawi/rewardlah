@@ -19,7 +19,7 @@
                                             </div>
                                             <div class="col-7">
                                                 <h4>{{ number_format(auth()->user()->points) }}
-                                                    <small style="color:#6dca6d">+5%</small>
+                                                    <small style="color:#6dca6d">+{{ $percentage }}%</small>
                                                 </h4>
                                                 <p><small>Points Accumulated</small></p>
                                             </div>
@@ -108,7 +108,7 @@
                             @foreach($transactions as $transaction)
                             <tr>
                                 <td>{{ $transaction->created_at->format('d M Y') }}</td>
-                                <td>{{ request()->get('send') == 1 ? $transaction->sent : $transaction->received }}</td>
+                                <td>{{ $transaction->points }}</td>
                                 <td>{{ request()->get('send') == 1 ? $transaction->receiver->name : $transaction->sender->name }}</td>
                                 <td>{{ $transaction->remarks ?? '-' }}</td>
                             </tr>

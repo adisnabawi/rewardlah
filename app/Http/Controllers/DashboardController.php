@@ -24,7 +24,18 @@ class DashboardController extends Controller
 
         $transactions = $transactions->orderBy('created_at', 'desc')
             ->paginate(10);
-        return view('welcome', compact('employees', 'transactions'));
+
+        $percentage = 0;
+        $totalPointsToday = Transaction::where('company_id', auth()->user()->company_id)
+            ->whereDate('created_at', date('Y-m-d'))
+            ->where('receiver_id', auth()->user()->id)
+            ->sum('points');
+        if ($totalPointsToday > 0) {
+            $percentage = ( $totalPointsToday / (auth()->user()->points - $totalPointsToday)) * 100;
+            $percentage = round($percentage, 2);
+        }
+
+        return view('welcome', compact('employees', 'transactions', 'percentage'));
     }
 
     public function leaderboard()

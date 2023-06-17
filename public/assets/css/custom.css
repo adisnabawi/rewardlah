@@ -1,0 +1,18 @@
+/* Write your custom CSS here */
+@media only screen and (max-width: 455px) {
+    .logo-img {
+        height: 20px !important;
+    }
+}
+
+@media only screen and (max-width: 367px) {
+    .logo-img {
+        height: 10px !important;
+    }
+}
+
+.logo-img {
+    font-size: 1.25rem;
+    text-decoration: none;
+    white-space: nowrap;
+}

@@ -17,7 +17,7 @@
             <a href="{{ route('dashboard.employee') }}"><i data-feather="user"></i>Employee</a>
         </li>
         <li class="{{ Route::currentRouteName() == 'dashboard.product' ? 'active-page':'' }}">
-            <a href="{{ route('dashboard.product') }}"><i data-feather="user"></i>Product</a>
+            <a href="{{ route('dashboard.product') }}"><i data-feather="shopping-cart"></i>Product</a>
         </li>
         @endif
         <li class="sidebar-title">
@@ -29,8 +29,8 @@
         <li class="{{ Route::currentRouteName() == 'dashboard.redeem' ? 'active-page':'' }}">
             <a href="{{ route('dashboard.redeem') }}"><i data-feather="shopping-bag"></i>Reward and Redeem</a>
         </li>
-        <li>
-            <a href=""><i data-feather="users"></i>Mentoring</a>
+        <li class="{{ str_contains(Route::currentRouteName(), 'dashboard.mentor') ? 'active-page':'' }}">
+            <a href="{{ route('dashboard.mentor') }}"><i data-feather="users"></i>Mentoring</a>
         </li>
     </ul>
 </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PointsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RedeemController;
+use App\Http\Controllers\MentorController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -70,6 +71,12 @@ Route::middleware('auth')->name('dashboard.')->group(function () {
     Route::prefix('/redeem')->group(function () {
         Route::get('/',[RedeemController::class, 'index'])->name('redeem');
         Route::post('/add', [RedeemController::class, 'redeem'])->name('redeem.add');
+    });
+
+    Route::prefix('/mentor')->group(function () {
+        Route::get('/',[MentorController::class, 'index'])->name('mentor');
+        Route::post('/book', [MentorController::class, 'book'])->name('mentor.book');
+        Route::get('/book/list', [MentorController::class, 'list'])->name('mentor.book.list');
     });
 
     Route::get('/leaderboard',[DashboardController::class, 'leaderboard'])->name('leaderboard');

@@ -45,6 +45,7 @@ Route::get('/logout', function () {
 
 Route::middleware('auth')->name('dashboard.')->group(function () {
     Route::get('/',[DashboardController::class, 'index'])->name('index');
+    Route::get('/mypoints',[DashboardController::class, 'mypoints'])->name('mypoints');
     Route::prefix('/employee')->group(function () {
         Route::get('/',[EmployeeController::class, 'index'])->name('employee');
         Route::get('/create', [EmployeeController::class, 'create'])->name('employee.create');

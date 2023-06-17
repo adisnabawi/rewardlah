@@ -6,6 +6,9 @@
         <li class="{{ Route::currentRouteName() == 'dashboard.index' ? 'active-page':'' }}">
             <a href="{{ route('dashboard.index') }}"><i data-feather="home"></i>Dashboard</a>
         </li>
+        <li class="{{ Route::currentRouteName() == 'dashboard.mypoints' ? 'active-page':'' }}">
+            <a href="{{ route('dashboard.mypoints') }}"><i data-feather="award"></i>MyPoints</a>
+        </li>
         @if (auth()->user()->level == 1)
         <li class="{{ Route::currentRouteName() == 'dashboard.department' ? 'active-page':'' }}">
             <a href="{{ route('dashboard.department') }}"><i data-feather="inbox"></i>Department</a>

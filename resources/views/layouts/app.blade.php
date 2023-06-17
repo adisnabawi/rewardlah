@@ -39,12 +39,11 @@
     <script src="{{ url('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="{{ url('assets/plugins/perfectscroll/perfect-scrollbar.min.js') }}"></script>
-    @if (Route::currentRouteName() == 'dashboard.admin')
+    @if (Route::currentRouteName() == 'dashboard.index')
     <script src="{{ url('assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ url('assets/js/pages/dashboard.js') }}"></script>
     @endif
     <script src="{{ url('assets/js/main.min.js') }}"></script>
     @stack('scripts')
 </body>
-
 </html>

@@ -19,12 +19,12 @@
                                 </p>
 
                                 <p class="card-text text-center">{{ $tops[1]['name'] }}</p>
-                                <p class="text-center"><small>{{ $tops[1]['department']['name'] }} </small> </p>
+                                <p class="text-center font-weight-bold">Department <b>{{ $tops[1]['department']['name'] }}</b> </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card mt-4" style="box-shadow: 2px 2px 4px 2px #c7c7c7bd;">
+                        <div class="card mt-4" style="box-shadow: 2px 2px 4px 2px #c7c7c7bd; padding-top:30px">
                             <div class="card-body">
                                 <h4 class="card-title text-center">
                                     <img src="{{ url('img/gold.png') }}" alt="">
@@ -35,7 +35,7 @@
                                 </p>
 
                                 <p class="card-text text-center">{{ $tops[0]['name'] }}</p>
-                                <p class="text-center"><small>{{ $tops[0]['department']['name'] }} </small> </p>
+                                <p class="text-center font-weight-bold">Department <b>{{ $tops[0]['department']['name'] }}</b> </p>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                                 </p>
 
                                 <p class="card-text text-center">{{ $tops[2]['name'] }}</p>
-                                <p class="text-center"><small>{{ $tops[2]['department']['name'] }} </small> </p>
+                                <p class="text-center font-weight-bold">Department <b>{{ $tops[2]['department']['name'] }}</b></p>
                             </div>
                         </div>
                     </div>

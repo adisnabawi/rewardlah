@@ -8,7 +8,12 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index(Request $request)
+    public function index()
+    {
+        return view('dashboard');
+    }
+
+    public function mypoints(Request $request)
     {
         $employees = User::where('company_id', auth()->user()->company_id)
             ->whereNotIn('id', [auth()->user()->id])
@@ -35,7 +40,7 @@ class DashboardController extends Controller
             $percentage = round($percentage, 2);
         }
 
-        return view('welcome', compact('employees', 'transactions', 'percentage'));
+        return view('mypoints', compact('employees', 'transactions', 'percentage'));
     }
 
     public function leaderboard()

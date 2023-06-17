@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <h3>Dashboard</h3>
+                <h3>MyPoints</h3>
                 @include('layouts.message')
                 <div class="row mt-4">
                     <div class="col-md-4">

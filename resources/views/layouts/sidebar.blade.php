@@ -7,10 +7,10 @@
             <a href="{{ route('dashboard.index') }}"><i data-feather="home"></i>Dashboard</a>
         </li>
         @if (auth()->user()->level == 1)
-        <li>
+        <li class="{{ Route::currentRouteName() == 'dashboard.department' ? 'active-page':'' }}">
             <a href="{{ route('dashboard.department') }}"><i data-feather="inbox"></i>Department</a>
         </li>
-        <li>
+        <li class="{{ Route::currentRouteName() == 'dashboard.employee' ? 'active-page':'' }}">
             <a href="{{ route('dashboard.employee') }}"><i data-feather="user"></i>Employee</a>
         </li>
         @endif
